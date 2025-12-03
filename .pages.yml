@@ -1,0 +1,74 @@
+# .pages.yml - Configuration for Pages CMS
+media:
+  input: content/images
+  output: /content/images
+  extensions: [jpg, jpeg, png, webp, gif]
+
+content:
+  # Articles Collection
+  - name: articles
+    label: Articles
+    type: collection
+    path: content/articles
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: date
+        type: date
+        required: true
+      - name: author
+        type: string
+      - name: image
+        type: image
+        required: false
+        description: "Featured image for the article"
+      - name: tags
+        type: string
+        list: true
+      - name: body
+        type: rich-text
+        required: true
+
+  # Team Members Collection
+  - name: team
+    label: Team Members
+    type: collection
+    path: content/teams
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: role
+        type: string
+        required: true
+      - name: image
+        type: image
+        required: false
+        description: "Photo of the team member"
+      - name: tags
+        type: string
+        list: true
+      - name: body
+        type: rich-text
+        required: true
+
+  # Services Collection
+  - name: services
+    label: Services
+    type: collection
+    path: content/services
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: image
+        type: image
+        required: false
+        description: "Icon or image representing the service"
+      - name: body
+        type: rich-text
+        required: true
